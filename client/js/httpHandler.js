@@ -1,5 +1,6 @@
 (function () {
   const serverUrl = "http://127.0.0.1:3000";
+  const randomURL = "http://127.0.0.1:3000/?command=random";
 
   //
   // TODO: build the swim command fetcher here
@@ -8,8 +9,9 @@
   const fetchAnything = () => {
     $.ajax({
       type: "GET",
-      url: serverUrl,
+      url: randomURL,
       success: (res) => {
+        SwimTeam.move(res);
         console.log(res);
       },
     });
